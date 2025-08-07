@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: eleven_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: .
+    depends_on:
+      - db
+    environment:
+      POSTGRES_URL: postgres://user:password@db:5432/eleven_db
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+    command: sh -c "npx prisma migrate deploy && node src/index.js"
+
+volumes:
+  db_data:
