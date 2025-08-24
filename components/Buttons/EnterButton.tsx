@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-
-const EnterButton = ({ destination, navigation }: any) => {
+import { useNavigation } from "@react-navigation/native";
+const EnterButton = ({ destination }: any) => {
+  const navigation = useNavigation();
   const goToMap = () => {
     navigation.navigate(destination);
   };
@@ -11,7 +12,7 @@ const EnterButton = ({ destination, navigation }: any) => {
       <TouchableOpacity onPress={goToMap}>
         <Image
           style={styles.size}
-          source={require("../theme/next.png")}
+          source={require("../../theme/next.png")}
         ></Image>
       </TouchableOpacity>
     </View>
