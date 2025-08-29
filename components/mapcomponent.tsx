@@ -1,10 +1,13 @@
 import MapView from "react-native-maps";
 import { StyleSheet } from "react-native";
+import { PROVIDER_GOOGLE } from "react-native-maps";
 
 function MapComponent() {
   return (
     <MapView
       style={styles.map}
+      provider={PROVIDER_GOOGLE}
+      showsUserLocation
       initialRegion={{
         latitude: 48.866667,
         longitude: 2.333333,

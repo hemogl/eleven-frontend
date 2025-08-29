@@ -9,7 +9,7 @@ function LoginScreen() {
       <Text style={styles.appTitle}> eleven </Text>
       <LoginInput insidePlaceholder={"email"}></LoginInput>
       <LoginInput insidePlaceholder={"password"}></LoginInput>
-      <EnterButton destination={"MapScreen"}></EnterButton>
+      <EnterButton destination={"MainApp"}></EnterButton>
     </View>
   );
 }
